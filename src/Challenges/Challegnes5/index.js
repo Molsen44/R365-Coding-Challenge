@@ -50,7 +50,7 @@ const StyledResult = styled.p`
   border-radius: 1px;
 `;
 
-class Challenge4 extends Component {
+class Challenge5 extends Component {
   constructor(test) {
     super(test);
 
@@ -73,7 +73,7 @@ class Challenge4 extends Component {
       }
     }
     let convertString = parsedString.map(num => {
-      if (isNaN(num) || num == "") {
+      if (isNaN(num) || num == "" || num > 1000) {
         num = 0;
       } else {
         num = parseInt(num, 10);
@@ -102,9 +102,7 @@ class Challenge4 extends Component {
   render() {
     return (
       <StyledCard>
-        <StyledTitle>
-          Part 4: Not allow negative number by throwing an exception.
-        </StyledTitle>
+        <StyledTitle>Part 5: Numbers above 1000 is invalid .</StyledTitle>
         <StyledForm onSubmit={x => this.handleSubmit(x)}>
           <StyledLabel>
             Input &#8594;
