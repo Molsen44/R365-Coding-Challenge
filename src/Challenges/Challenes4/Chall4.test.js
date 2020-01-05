@@ -16,6 +16,6 @@ test("Deny Negative numbers", () => {
   fireEvent.click(subinfo);
 
   expect(outField.textContent).toBe(
-    "Error: Negative Numbers Included in Input: -10,-12"
+    "Error: Negative Numbers Included in Input: -5"
   );
 });
