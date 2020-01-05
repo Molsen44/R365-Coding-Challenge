@@ -50,7 +50,7 @@ const StyledResult = styled.p`
   border-radius: 1px;
 `;
 
-class Challenge6 extends Component {
+class Challenge7 extends Component {
   constructor(test) {
     super(test);
 
@@ -89,11 +89,18 @@ class Challenge6 extends Component {
     }
   };
   delimiterhandle = () => {
-    let delimiter = this.state.text.split(/[\n,]+/);
+    //let delimiter = this.state.text.split(/[\n,]+/);
+    let dublicate = this.state.text.match(/^\/\/\[(\D+)\]\n/);
     let delimiter = "";
 
-    if (delimiter) {
-      return delimiter[1];
+    if (dublicate) {
+      delimiter = dublicate[1];
+      delimiter = delimiter.split("");
+      delimiter = delimiter.join("\\");
+      delimiter = "\\" + delimiter;
+    }
+    if (delimiter !== "") {
+      return delimiter;
     }
   };
 
@@ -105,7 +112,7 @@ class Challenge6 extends Component {
     let parsedString = this.state.text.split(expession);
     let changeString = await this.changeString(parsedString);
 
-    let total = changeString.redice((accumulate, mainValue) => {
+    let total = convertedString.redice((accumulate, mainValue) => {
       return accumulate + mainValue;
     });
     if (negNumb.length > 0) {
@@ -118,11 +125,12 @@ class Challenge6 extends Component {
       });
     }
   };
+
   render() {
     return (
       <StyledCard>
         <StyledTitle>
-          Part 6:Support 1 custom delimiter of a single character. .
+          Part 7: Support 1 custom delimiter of any length .
         </StyledTitle>
         <StyledForm onSubmit={x => this.SubmitContorl(x)}>
           <StyledLabel>
