@@ -60,10 +60,10 @@ class Challenge1 extends Component {
     };
   }
 
-  handleInputChange = x => {
+  handleInput = x => {
     this.setState({ input: x.target.value });
   };
-  handleSubmit = x => {
+  SubmitContorl = x => {
     x.preventDefault();
     let parsedString = this.state.text.split(",");
 
@@ -99,13 +99,13 @@ class Challenge1 extends Component {
         <StyledTitle>
           Part 1: Support maximum of 2 numbers using a comma delimiter.
         </StyledTitle>
-        <StyledForm onSubmit={e => this.handleSubmit(e)}>
+        <StyledForm onSubmit={x => this.SubmitContorl(x)}>
           <StyledLabel>
             Input &#8594;
             <StyledInput
               data-testid="input"
               value={this.state.text}
-              onChange={e => this.handleInputChange(e)}
+              onChange={x => this.handleInput(x)}
             />
           </StyledLabel>
           <StyledButton data-testid="submit" type="submit">
