@@ -18,7 +18,7 @@ test("Correct String Format", () => {
   expect(outField.textContent).toBe("7");
 });
 
-test("Single Incorrect Input", () => {
+test("Single Input", () => {
   const { getByTestId } = render(<Challenge1 />);
 
   const inField = getByTestId("input");
@@ -33,7 +33,7 @@ test("Single Incorrect Input", () => {
 
   expect(outField.textContent).toBe("5");
 });
-test("Single Number Input", () => {
+test("Single Number", () => {
   const { getByTestId } = render(<Challenge1 />);
 
   const inField = getByTestId("input");
@@ -48,7 +48,7 @@ test("Single Number Input", () => {
 
   expect(outField.textContent).toBe("8");
 });
-test("Single Negative Input", () => {
+test("Single Negative", () => {
   const { getByTestId } = render(<Challenge1 />);
 
   const inField = getByTestId("input");

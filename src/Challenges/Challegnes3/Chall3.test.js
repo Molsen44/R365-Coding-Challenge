@@ -1,9 +1,9 @@
 import React from "react";
-import Challenge2 from "./";
+import Challenge3 from "./";
 import { render, fireEvent } from "@testing-library/react";
 
 test("Correct String Format", () => {
-  const { getByTestId } = render(<Challenge2 />);
+  const { getByTestId } = render(<Challenge3 />);
 
   const inField = getByTestId("input");
   const outField = getByTestId("output");
@@ -18,8 +18,8 @@ test("Correct String Format", () => {
   expect(outField.textContent).toBe("7");
 });
 
-test("Single  Input", () => {
-  const { getByTestId } = render(<Challenge2 />);
+test("Incorrect Input", () => {
+  const { getByTestId } = render(<Challenge3 />);
 
   const inField = getByTestId("input");
   const outField = getByTestId("output");
@@ -33,8 +33,8 @@ test("Single  Input", () => {
 
   expect(outField.textContent).toBe("5");
 });
-test("Single Number ", () => {
-  const { getByTestId } = render(<Challenge2 />);
+test("Single Input", () => {
+  const { getByTestId } = render(<Challenge3 />);
 
   const inField = getByTestId("input");
   const outField = getByTestId("output");
@@ -50,7 +50,7 @@ test("Single Number ", () => {
 });
 
 test("More inputs than 2", () => {
-  const { getByTestId } = render(<Challenge2 />);
+  const { getByTestId } = render(<Challenge3 />);
 
   const inField = getByTestId("input");
   const outField = getByTestId("output");
@@ -63,4 +63,20 @@ test("More inputs than 2", () => {
   fireEvent.click(subinfo);
 
   expect(outField.textContent).toBe("66");
+});
+
+test("Newline delimiter", () => {
+  const { getByTestId } = render(<Challenge3 />);
+
+  const inField = getByTestId("input");
+  const outField = getByTestId("output");
+  const subinfo = getByTestId("submit");
+
+  fireEvent.change(inField, {
+    target: { value: "1\n3" }
+  });
+
+  fireEvent.click(subinfo);
+
+  expect(outField.textContent).toBe("4");
 });
